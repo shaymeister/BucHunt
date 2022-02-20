@@ -11,6 +11,23 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BucHuntDB", "BucHuntDB\BucH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{59320AAC-0580-47B4-B518-0D67D7E95236}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{6398D238-AC53-4E96-BF45-6D89ED16AF95}"
+	ProjectSection(SolutionItems) = preProject
+		data\qr-codes\borchuck.png = data\qr-codes\borchuck.png
+		data\qr-codes\cameron_tree.png = data\qr-codes\cameron_tree.png
+		data\qr-codes\clock_110.png = data\qr-codes\clock_110.png
+		data\qr-codes\cpa.png = data\qr-codes\cpa.png
+		data\qr-codes\culp.png = data\qr-codes\culp.png
+		data\qr-codes\dossett.png = data\qr-codes\dossett.png
+		data\qr-codes\football_stadium_east.png = data\qr-codes\football_stadium_east.png
+		data\qr-codes\gilbreath.png = data\qr-codes\gilbreath.png
+		data\qr-codes\minidome_east.png = data\qr-codes\minidome_east.png
+		data\qr-codes\mlc.png = data\qr-codes\mlc.png
+		data\qr-codes\nicks.png = data\qr-codes\nicks.png
+		data\qr-codes\parking_garage_market.png = data\qr-codes\parking_garage_market.png
+		data\qr-codes\quad_lamp.png = data\qr-codes\quad_lamp.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
