@@ -47,12 +47,20 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="DBLogic\LocationProcessor.cs" />
     <Compile Include="DBLogic\ParticipantProcessor.cs" />
+    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\ParticipantModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BucHunt\BucHunt.csproj">
+      <Project>{64613A4F-0266-4B8B-983A-30E7F06CFF8C}</Project>
+      <Name>BucHunt</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
