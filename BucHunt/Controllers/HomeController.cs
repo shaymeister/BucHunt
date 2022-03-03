@@ -21,5 +21,12 @@ namespace BucHunt.Controllers
 
             return View();
         }
+
+        public ActionResult SuccessfulSignUp()
+        {
+            ViewBag.Title = "Successful Sign Up";
+
+            return View();
+        }
     }
 }
