@@ -34,11 +34,11 @@ namespace BucHunt.Controllers
 
         public ActionResult SignUp(ParticipantModel participant)
         {
-           SendEmail(participant.Email);
-           SendTexts(participant.PhoneNumber, participant.provider);
+           //SendEmail(participant.Email);
+           //SendTexts(participant.PhoneNumber, participant.provider);
             return View();
         }
-
+        /*
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
         void SendEmail(string email)
@@ -128,7 +128,7 @@ namespace BucHunt.Controllers
 
             }
             SendEmail(EmailAddress);
-        }
+        }*/
 
     }
 }

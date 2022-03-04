@@ -1,31 +1,38 @@
-﻿<style>
+﻿@using BucHunt.Models
+@model BucHunt.Models.ParticipantModel
+<style>
     body {
         background-color: #041E42;
     }
+
     h1 {
         font-weight: 600;
         color: #ffc72c
     }
+
     h3 {
         font-weight: 300;
         color: #ffc72c
     }
+
     label {
         color: white
     }
-
 </style>
 <center>
-    <h1> 
+    <h1>
         WELCOME TO BUCHUNT
     </h1>
 </center>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 <center>
     <div class="col-8 card">
         <div class="col-12 row">
             <p>&nbsp;</p>
         </div>
-        <div class="col-12 row">  
+        <div class="col-12 row">
             <img src="~/Images/logo.png" width="250" height="200" />
         </div>
         <div class="col">
@@ -42,11 +49,14 @@
             <div class="col">
                 <label>Email Address</label>
                 <div class="form-group">
-                    <input class="form-control" ID="TextBox1" placeholder="Email Address">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 <label>Phone Number</label>
                 <div class="form-group">
-                    <input class="form-control" ID="TextBox1" placeholder="Phone Number">
+                    @Html.DropDownListFor(model => model.provider,
+                    new SelectList(Enum.GetValues(typeof(Providers))),
+                    "Select Provider")
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 <label>Password</label>
                 <div class="form-group">
@@ -58,13 +68,18 @@
                 </div>
                 <center>
                     <div class="form-group">
-                        <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Submit" />
+                        <input class="btn btn-info btn-block btn-lg" onclick="location.href='@Url.Action("Index", "Home")'" id="Button2" type="Submit" value="Submit" />
                     </div>
                 </center>
             </div>
         </div>
     </div>
-        <div class="col-12 row">
-            <p>&nbsp;</p>
-        </div>
+    <div class="col-12 row">
+        <p>&nbsp;</p>
+    </div>
 </center>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
