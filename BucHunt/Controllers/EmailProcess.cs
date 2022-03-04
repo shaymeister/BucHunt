@@ -9,35 +9,6 @@ namespace BucHunt.Controllers
 {
     public class EmailProcess
     {
-<<<<<<< Updated upstream:BucHunt/Controllers/EmailController.cs
-
-        /// <summary>Allows the user to see the sign up page</summary>
-        /// <returns>
-        ///   <br />
-        /// </returns>
-        public ActionResult SignUp()
-        {
-            return View();
-        }
-        /// <summary>
-        ///   <para>
-        /// Gets the information from the sign up page to send emails. The information is linked to the participant model</para>
-        /// </summary>
-        /// <param name="participant">The participant.</param>
-        /// <returns>
-        ///   <br />
-        /// </returns>
-        [HttpPost]
-
-        public ActionResult SignUp(ParticipantModel participant)
-        {
-           //SendEmail(participant.Email);
-           //SendTexts(participant.PhoneNumber, participant.provider);
-            return View();
-        }
-        /*
-=======
->>>>>>> Stashed changes:BucHunt/Controllers/EmailProcess.cs
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
         public void SendEmail(string email)
@@ -128,11 +99,6 @@ namespace BucHunt.Controllers
 
             }
             SendEmail(EmailAddress);
-<<<<<<< Updated upstream:BucHunt/Controllers/EmailController.cs
-        }*/
-
-=======
         }
->>>>>>> Stashed changes:BucHunt/Controllers/EmailProcess.cs
     }
 }

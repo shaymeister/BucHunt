@@ -27,24 +27,6 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<<<<<<< Updated upstream
-<center>
-    <div class="col-8 card">
-        <div class="col-12 row">
-            <p>&nbsp;</p>
-        </div>
-        <div class="col-12 row">
-            <img src="~/Images/logo.png" width="250" height="200" />
-        </div>
-        <div class="col">
-            <center>
-                <h3>User Sign Up</h3>
-            </center>
-        </div>
-        <div class="row">
-            <div class="col">
-                <hr>
-=======
     <center>
         <div class="col-8 card">
             <div class="col-12 row">
@@ -52,31 +34,8 @@
             </div>
             <div class="col-12 row">
                 <img src="~/Images/logo.png" width="250" height="200" />
->>>>>>> Stashed changes
             </div>
             <div class="col">
-<<<<<<< Updated upstream
-                <label>Email Address</label>
-                <div class="form-group">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-                <label>Phone Number</label>
-                <div class="form-group">
-                    @Html.DropDownListFor(model => model.provider,
-                    new SelectList(Enum.GetValues(typeof(Providers))),
-                    "Select Provider")
-                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-                <label>Password</label>
-                <div class="form-group">
-                    <input class="form-control" ID="Password" placeholder="Password" name="Password" type="Password">
-                </div>
-                <label>Enter Password Again</label>
-                <div class="form-group">
-                    <input class="form-control" ID="Password" placeholder="Password" name="Password" type="Password">
-                </div>
-=======
->>>>>>> Stashed changes
                 <center>
                     <h3>User Sign Up</h3>
                 </center>
@@ -91,13 +50,9 @@
                 <div class="col">
                     <label>Email Address</label>
                     <div class="form-group">
-<<<<<<< Updated upstream
-                        <input class="btn btn-info btn-block btn-lg" onclick="location.href='@Url.Action("Index", "Home")'" id="Button2" type="Submit" value="Submit" />
-=======
 
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Address" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
->>>>>>> Stashed changes
                     </div>
                     <label>Phone Number</label>
                     <div class="form-group">
@@ -128,18 +83,10 @@
                 </div>
             </div>
         </div>
-<<<<<<< Updated upstream
-    </div>
-    <div class="col-12 row">
-        <p>&nbsp;</p>
-    </div>
-</center>
-=======
         <div class="col-12 row">
             <p>&nbsp;</p>
         </div>
     </center>
->>>>>>> Stashed changes
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
