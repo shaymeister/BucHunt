@@ -280,14 +280,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-<<<<<<< Updated upstream
-    <Content Include="Views\Email\dummySignUp.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
-=======
-    <Content Include="Views\Home\SignUp.cshtml" />
-    <Content Include="Views\Home\SuccessfulSignUp.cshtml" />
     <Content Include="Views\Home\dummySignUp.cshtml" />
->>>>>>> Stashed changes
+    <Content Include="Views\Home\SuccessfulSignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
