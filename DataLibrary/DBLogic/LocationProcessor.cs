@@ -10,16 +10,18 @@ namespace DataLibrary.DBLogic
 {
     internal class LocationProcessor
     {
-        public static void CreateLocation(string name, string Location)
+        public static void CreateLocation(string locationName , string completion, string decodedQR, string userEntry)
         {
             LocationModel data = new LocationModel()
             {
-                Name = name,
-                Location = Location
+                LocationName = locationName,
+                Completion = completion,
+                DecodedQR = decodedQR,
+                UserEntry = userEntry
             };
 
-            string sql = @" insert into dbo.Location (Name, Location)
-                            values (@Name, @Location)";
+            string sql = @" insert into dbo.Location (LocationName, Completion, DecodedQR, UserEntry)
+                            values (@LocationName, @Completion, @DecodedQR, @UserEntry)";
             
             SqlDataAccess.SaveData(sql, data);
         }
