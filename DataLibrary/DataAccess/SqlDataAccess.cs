@@ -12,7 +12,7 @@ namespace DataLibrary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "BucHuntDB")
+        public static string GetConnectionString(string connectionName = "BucHuntLocalDB")
         {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
@@ -25,11 +25,27 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public static List<T> LoadSingleData<T>(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Query<T>(sql).ToList();
+            }
+        }
+
         public static void SaveData<T>(string sql, T data)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
                 cnn.Execute(sql, data);
+            }
+        }
+
+        public static void DeleteData(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                cnn.Execute(sql);
             }
         }
     }

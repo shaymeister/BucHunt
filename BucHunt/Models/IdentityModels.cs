@@ -29,5 +29,7 @@ namespace BucHunt.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BucHunt.Models.LocationModel> LocationModels { get; set; }
     }
 }

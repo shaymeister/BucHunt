@@ -28,5 +28,12 @@ namespace BucHunt.Controllers
 
             return View();
         }
+
+        public ActionResult Locations()
+        {
+            ViewBag.Title = "Locations Page";
+
+            return View();
+        }
     }
 }
