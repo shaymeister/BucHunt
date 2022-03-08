@@ -6,14 +6,20 @@
 }
 
 <h4>All locations in the hunt</h4>
+<style>
+    .inline {
+        display: inline-block;
+    }
+</style>
 @using (Html.BeginForm())
 {
     <form>
         <div class="form-group">
             <label for="hardcodelocation">Culp Center</label>
-            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Latitude" } })
-            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Longitude" } })
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div>
+                @Html.EditorFor(model => model.DecodedQR, new { htmlAttributes = new { @class = "form-control inline", @placeholder = "Decoded QR Code" } })
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
             @if (ViewBag.Message != null)
             {
                 <div class="alert alert-success" role="alert">
@@ -23,21 +29,27 @@
         </div>
         <div class="form-group">
             <label for="hardcodelocation">Gilbreath Hall</label>
-            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Latitude" } })
-            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Longitude" } })
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div>
+                @Html.EditorFor(model => model.DecodedQR, new { htmlAttributes = new { @class = "form-control inline", @placeholder = "Decoded QR Code" } })
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            
         </div>
         <div class="form-group">
             <label for="hardcodelocation">Millennium Center</label>
-            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Latitude" } })
-            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Longitude" } })
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div>
+                @Html.EditorFor(model => model.DecodedQR, new { htmlAttributes = new { @class = "form-control inline", @placeholder = "Decoded QR Code" } })
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            
         </div>
         <div class="form-group">
             <label for="hardcodelocation">Roy Nicks Hall</label>
-            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Latitude" } })
-            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @placeholder = "Longitude" } })
-            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            <div>
+                @Html.EditorFor(model => model.DecodedQR, new { htmlAttributes = new { @class = "form-control inline", @placeholder = "Decoded QR Code" } })
+                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            </div>
+            
         </div>
     </form>
 }
