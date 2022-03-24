@@ -1,70 +1,96 @@
-﻿<style>
+@using BucHunt.Models
+@model BucHunt.Models.ParticipantModel
+<style>
     body {
         background-color: #041E42;
     }
+
     h1 {
         font-weight: 600;
         color: #ffc72c
     }
+
     h3 {
         font-weight: 300;
         color: #ffc72c
     }
+
     label {
         color: white
     }
-
 </style>
 <center>
-    <h1> 
+    <h1>
         WELCOME TO BUCHUNT
     </h1>
 </center>
-<center>
-    <div class="col-8 card">
-        <div class="col-12 row">
-            <p>&nbsp;</p>
-        </div>
-        <div class="col-12 row">  
-            <img src="~/Images/logo.png" width="250" height="200" />
-        </div>
-        <div class="col">
-            <center>
-                <h3>User Sign Up</h3>
-            </center>
-        </div>
-        <div class="row">
-            <div class="col">
-                <hr>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <center>
+        <div class="col-8 card">
+            <div class="col-12 row">
+                <p>&nbsp;</p>
             </div>
-        </div>
-        <div class="row">
+            <div class="col-12 row">
+                <img src="~/Images/logo.png" width="250" height="200" />
+            </div>
             <div class="col">
-                <label>Email Address</label>
-                <div class="form-group">
-                    <input class="form-control" ID="TextBox1" placeholder="Email Address">
-                </div>
-                <label>Phone Number</label>
-                <div class="form-group">
-                    <input class="form-control" ID="TextBox1" placeholder="Phone Number">
-                </div>
-                <label>Password</label>
-                <div class="form-group">
-                    <input class="form-control" ID="Password" placeholder="Password" name="Password" type="Password">
-                </div>
-                <label>Re-Enter Password</label>
-                <div class="form-group">
-                    <input class="form-control" ID="Password" placeholder="Password" name="Password" type="Password">
-                </div>
                 <center>
-                    <div class="form-group">
-                        <input class="btn btn-info btn-block btn-lg" onclick="location.href='@Url.Action("SuccessfulSignUp", "Home")'" id="Button2" type="button" value="Submit" />
-                    </div>
+                    <h3>User Sign Up</h3>
                 </center>
             </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col">
+                    <label>Email Address</label>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Address" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <label>Phone Number</label>
+                    <div class="form-group">
+                        <div>
+                            @Html.DropDownListFor(model => model.provider,
+                                                        new SelectList(Enum.GetValues(typeof(Providers))),
+                                                        "Select Provider", new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Phone Number" } })
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.ValidationMessageFor(model => model.provider, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <label>Password</label>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <label>Re-Enter Password</label>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.RetypePassWd, new { htmlAttributes = new { @class = "form-control", @placeholder = "Re-Enter Password" } })
+                        @Html.ValidationMessageFor(model => model.RetypePassWd, "", new { @class = "text-danger" })
+                    </div>
+                    <center>
+                        <div class="form-group">
+                            <input class="btn btn-info btn-block btn-lg" id="Button2" type="submit" value="Submit" />
+                        </div>
+                    </center>
+                </div>
+            </div>
         </div>
-    </div>
         <div class="col-12 row">
             <p>&nbsp;</p>
         </div>
-</center>
+    </center>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
