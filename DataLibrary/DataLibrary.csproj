@@ -54,12 +54,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BucHunt\BucHunt.csproj">
-      <Project>{64613A4F-0266-4B8B-983A-30E7F06CFF8C}</Project>
-      <Name>BucHunt</Name>
+    <ProjectReference Include="..\BucHuntDB\BucHuntDB.sqlproj">
+      <Project>{e883cdd3-5b21-451d-94e1-65f3d14d4e55}</Project>
+      <Name>BucHuntDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

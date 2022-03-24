@@ -11,7 +11,7 @@ namespace DataLibrary.DBLogic
     public static class ParticipantProcessor
     {
         public static void CreateParticipant(int accesscode, string firstname, string lastname,
-            string emailaddress, int phonenumber)
+            string emailaddress, string phonenumber)
         {
             ParticipantModel data = new ParticipantModel
             {
