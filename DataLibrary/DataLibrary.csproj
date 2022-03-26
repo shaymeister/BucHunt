@@ -56,11 +56,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BucHunt\BucHunt.csproj">
-      <Project>{64613A4F-0266-4B8B-983A-30E7F06CFF8C}</Project>
-      <Name>BucHunt</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

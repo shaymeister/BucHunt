@@ -9,11 +9,13 @@ namespace BucHunt.Controllers
 {
     public class EmailProcess
     {
+        bool messageSent;
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
-        public void SendEmail(string email)
+        public bool SendEmail(string email, string accesscode)
         {
-            string AccessCode = "068123";
+            messageSent = true;
+            string AccessCode = accesscode;
             //Sets up the message we are going to send to the participant
             string subject = "Here's you're access code";
             string body = string.Format("Your access code to BucHunt is {0}", AccessCode);
@@ -36,12 +38,12 @@ namespace BucHunt.Controllers
             {
                 client.Send(message);
             }
-            catch (Exception)
+            catch (SmtpFailedRecipientsException ex)
             {
-
+                messageSent = false;
             }
 
-            Console.WriteLine("Ayooooooo");
+            return messageSent;
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace BucHunt.Controllers
         /// </summary>
         /// <param name="phoneNumber">The phone number.</param>
         /// <param name="p">The service provider</param>
-        public void SendTexts(string phoneNumber, Models.Providers p)
+        public bool SendTexts(string phoneNumber, Models.Providers p, string AccessCode)
         {
             string EmailAddress = "";
             //Creates the email string from their phone number and service provider
@@ -98,7 +100,8 @@ namespace BucHunt.Controllers
                     }
 
             }
-            SendEmail(EmailAddress);
+            messageSent = SendEmail(EmailAddress, AccessCode);
+            return messageSent;
         }
     }
 }

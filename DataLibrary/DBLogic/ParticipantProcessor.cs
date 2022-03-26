@@ -11,7 +11,7 @@ namespace DataLibrary.DBLogic
     public static class ParticipantProcessor
     {
         public static void CreateParticipant(int accesscode, string firstname, string lastname,
-            string emailaddress, int phonenumber)
+            string emailaddress, string phonenumber, string password)
         {
             ParticipantModel data = new ParticipantModel
             {
@@ -19,11 +19,12 @@ namespace DataLibrary.DBLogic
                 FirstName = firstname,
                 LastName = lastname,
                 Email = emailaddress,
-                PhoneNumber = phonenumber
+                PhoneNumber = phonenumber,
+                Password = password
             };
 
             string sql = @"insert into dbo.Participant (AccessCode, FirstName, LastName, Email, PhoneNumber)
-                        values (@AccessCode, @FirstName, @LastName, @Email, @PhoneNumber);";
+                        values (@AccessCode, @FirstName, @LastName, @Email, @PhoneNumber, @Password);";
 
             SqlDataAccess.SaveData(sql, data);
         }
