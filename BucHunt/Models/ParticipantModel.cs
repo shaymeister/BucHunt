@@ -23,7 +23,6 @@ namespace BucHunt.Models
         [Required(ErrorMessage = "Please Enter a Phone Number")]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "Enter a Phone Number that is Ten Digits Long")]
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "You must have a Password")]
         [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 10, ErrorMessage = "Enter a Password")]
         public string Password { get; set; }

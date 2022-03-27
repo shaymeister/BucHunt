@@ -24,7 +24,7 @@ namespace BucHunt.Controllers
 
             byte[] hashedPW = new byte[40];
             Array.Copy(salt, 0, hashedPW, 0, 20);
-            Array.Copy(hash, 0, hashedPW, 20, 40);
+            Array.Copy(hash, 0, hashedPW, 20, 20);
 
             return Convert.ToBase64String(hashedPW);
         }
