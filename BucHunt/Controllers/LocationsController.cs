@@ -37,6 +37,7 @@ namespace BucHunt.Controllers
         }
 
         // GET: LocationModels/Details/5
+        // show error if location does not exist
         public ActionResult Details(int? id)
         {
             var locId = id ?? default(int);
@@ -53,6 +54,9 @@ namespace BucHunt.Controllers
                     UserEntry = row.UserEntry
                 });
             }
+            
+            // explain why we are using 0 here for index
+            // explain the error that returns when not returning a list
             var locationModel = locations[0];
 
             return View(locationModel);
@@ -64,6 +68,7 @@ namespace BucHunt.Controllers
 
 
         // GET: LocationModels/Create
+        // maybe this more expressive for individuals not familiar with crud?
         public ActionResult Create()
         {
             return View();
