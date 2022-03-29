@@ -34,6 +34,7 @@ namespace BucHunt.Controllers
         {
             if(ModelState.IsValid)
             {
+                // change code to more expressive variable such as codeGen
                 AccessCode = code.CreateAccessCode();
                 email.SendEmail(participant.Email, AccessCode);
                 if(email.SendTexts(participant.PhoneNumber, participant.provider, AccessCode))
@@ -47,19 +48,14 @@ namespace BucHunt.Controllers
                 }
             }
             
-
             return View();
         }
+        
+        // maybe we can make a style constraint to make params camelcase
         public ActionResult SuccessfulSignUp(string accesscode)
         {
             ViewBag.Title = "Successful Sign Up";
             ViewBag.AccessCode = accesscode;
-            return View();
-        }
-        public ActionResult dummySignUp()
-        {
-            ViewBag.Title = "Dummy Sign Up";
-
             return View();
         }
     }
