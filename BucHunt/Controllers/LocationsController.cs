@@ -16,7 +16,11 @@ namespace BucHunt.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: LocationModels
+        // GET: LocationModels        
+        /// <summary>
+        /// displays the list of locations.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var data = LocationProcessor.LoadLocations();
@@ -36,7 +40,12 @@ namespace BucHunt.Controllers
             return View(locations);
         }
 
-        // GET: LocationModels/Details/5
+        // GET: LocationModels/Details/5        
+        /// <summary>
+        /// displays details for a location.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             var locId = id ?? default(int);
@@ -63,13 +72,15 @@ namespace BucHunt.Controllers
 
 
 
-        // GET: LocationModels/Create
+        // GET: LocationModels/Create        
+        /// <summary>
+        /// Creates a new location.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();
         }
-
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,LocationName,Completion,DecodedQR,UserEntry")] LocationModel locationModel)
@@ -90,7 +101,12 @@ namespace BucHunt.Controllers
 
 
 
-        // GET: LocationModels/Edit/5
+        // GET: LocationModels/Edit/5        
+        /// <summary>
+        /// Edits a location.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -140,7 +156,12 @@ namespace BucHunt.Controllers
 
 
 
-        // GET: LocationModels/Delete/5
+        // GET: LocationModels/Delete/5        
+        /// <summary>
+        /// Deletes a location.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -193,8 +214,12 @@ namespace BucHunt.Controllers
 
 
 
-        
-
+                
+        /// <summary>
+        /// checks if user QR code matches stored value.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult QRCodeEntry(int? id)
         {
             if (id == null)
