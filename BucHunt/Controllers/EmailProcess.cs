@@ -1,4 +1,6 @@
-﻿using System;
+// add file header docs
+
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -7,18 +9,19 @@ using System.Web;
 
 namespace BucHunt.Controllers
 {
+    // add class docs
     public class EmailProcess
     {
         bool messageSent;
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
-        public bool SendEmail(string email, string accesscode)
+        public bool SendEmail(string email, string accessCode)
         {
-            messageSent = true;
-            string AccessCode = accesscode;
             //Sets up the message we are going to send to the participant
             string subject = "Here's you're access code";
-            string body = string.Format("Your access code to BucHunt is {0}", AccessCode);
+            
+            // extract BucHunt specific name and email addresses to variable
+            string body = string.Format("Your access code to BucHunt is {0}", accessCode);
             MailAddress to = new MailAddress(email);
             MailAddress from = new MailAddress("buchunt2022@gmail.com");
 
@@ -33,6 +36,8 @@ namespace BucHunt.Controllers
             client.EnableSsl = true;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
+            
+            // extract email password to variable
             client.Credentials = new NetworkCredential(from.Address, "Yowhat$good317");
             try
             {
@@ -40,10 +45,10 @@ namespace BucHunt.Controllers
             }
             catch (SmtpFailedRecipientsException ex)
             {
-                messageSent = false;
+                return false;
             }
 
-            return messageSent;
+            return true;
         }
 
         /// <summary>
@@ -63,7 +68,7 @@ namespace BucHunt.Controllers
                         EmailAddress = phoneNumber + "@vtext.com";
                         break;
                     }
-                case Models.Providers.Verison:
+                case Models.Providers.Verizon:
                     {
                         EmailAddress = phoneNumber + "@tmomail.net";
                         break;
