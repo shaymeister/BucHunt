@@ -47,7 +47,7 @@ namespace BucHunt.Controllers
                 if (hashes[x + 20] != hash[x])
                     return false;
             }
-            return true;
+                return true;
 
         }
     }

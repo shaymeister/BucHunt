@@ -37,7 +37,7 @@ namespace BucHunt.Models
     public enum Providers
     {
         TMobile,
-        Verison,
+        Verizon,
         ATnT,
         Metro,
         Cricket,

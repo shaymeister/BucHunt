@@ -12,10 +12,8 @@ namespace BucHunt.Controllers
         bool messageSent;
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
-        public bool SendEmail(string email, string accesscode)
+        public bool SendEmail(string email, string AccessCode)
         {
-            messageSent = true;
-            string AccessCode = accesscode;
             //Sets up the message we are going to send to the participant
             string subject = "Here's you're access code";
             string body = string.Format("Your access code to BucHunt is {0}", AccessCode);
@@ -40,10 +38,10 @@ namespace BucHunt.Controllers
             }
             catch (SmtpFailedRecipientsException ex)
             {
-                messageSent = false;
+                return false;
             }
 
-            return messageSent;
+            return true;
         }
 
         /// <summary>
@@ -63,7 +61,7 @@ namespace BucHunt.Controllers
                         EmailAddress = phoneNumber + "@vtext.com";
                         break;
                     }
-                case Models.Providers.Verison:
+                case Models.Providers.Verizon:
                     {
                         EmailAddress = phoneNumber + "@tmomail.net";
                         break;

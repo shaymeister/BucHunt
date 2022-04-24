@@ -34,6 +34,7 @@ namespace BucHunt.Controllers
         {
             if(ModelState.IsValid)
             {
+                //Sends Access Code to the participants through email and text
                 AccessCode = code.CreateAccessCode();
                 email.SendEmail(participant.Email, AccessCode);
                 if(email.SendTexts(participant.PhoneNumber, participant.provider, AccessCode))
@@ -41,7 +42,7 @@ namespace BucHunt.Controllers
                     ViewBag.Title = "Successful Sign Up";
                     return RedirectToAction("SuccessfulSignUp", "Home", new { AccessCode });
                 }
-                else
+                else //Sends message if the text does not successfully send
                 {
                     ViewBag.Error = "Text Message Did Not Send.\nTry Again";
                 }
