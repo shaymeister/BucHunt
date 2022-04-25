@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------
+// File name: EmailProcess.cs
+// Project name: BucHunt
+// ---------------------------------------------------------------------------
+// Creators: Carlos Ortiz						
+// Course-Section: CSCI 4250-001
+// Creation Date:		
+// ---------------------------------------------------------------------------
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -7,6 +15,15 @@ using System.Web;
 
 namespace BucHunt.Controllers
 {
+    /**
+    * Class Name: EmailProcess <br>
+    * Class Purpose: Sends Emails/Texts to the users.
+    * The messages contain information about the access code to get into the game
+    * 
+    * <hr>
+    * Date created:  <br>
+    * @author Carlos Ortiz
+    */
     public class EmailProcess
     {
         bool messageSent;

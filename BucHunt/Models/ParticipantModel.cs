@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------
+// File name: ParticipantModel.cs
+// Project name: BucHunt.Models
+// ---------------------------------------------------------------------------
+// Creators: Carlos Ortiz						
+// Course-Section: CSCI 4250-001
+// Creation Date:		
+// ---------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
