@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------
+// File name: EmailProcess.cs
+// Project name: BucHunt
+// ---------------------------------------------------------------------------
+// Creators: Carlos Ortiz						
+// Course-Section: CSCI 4250-001
+// Creation Date:		
+// ---------------------------------------------------------------------------
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -7,15 +15,22 @@ using System.Web;
 
 namespace BucHunt.Controllers
 {
+    /**
+    * Class Name: EmailProcess <br>
+    * Class Purpose: Sends Emails/Texts to the users.
+    * The messages contain information about the access code to get into the game
+    * 
+    * <hr>
+    * Date created:  <br>
+    * @author Carlos Ortiz
+    */
     public class EmailProcess
     {
         bool messageSent;
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
-        public bool SendEmail(string email, string accesscode)
+        public bool SendEmail(string email, string AccessCode)
         {
-            messageSent = true;
-            string AccessCode = accesscode;
             //Sets up the message we are going to send to the participant
             string subject = "Here's you're access code";
             string body = string.Format("Your access code to BucHunt is {0}", AccessCode);
@@ -40,10 +55,10 @@ namespace BucHunt.Controllers
             }
             catch (SmtpFailedRecipientsException ex)
             {
-                messageSent = false;
+                return false;
             }
 
-            return messageSent;
+            return true;
         }
 
         /// <summary>
@@ -63,7 +78,7 @@ namespace BucHunt.Controllers
                         EmailAddress = phoneNumber + "@vtext.com";
                         break;
                     }
-                case Models.Providers.Verison:
+                case Models.Providers.Verizon:
                     {
                         EmailAddress = phoneNumber + "@tmomail.net";
                         break;

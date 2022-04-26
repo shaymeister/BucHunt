@@ -1,4 +1,5 @@
-﻿using System;
+﻿//NOT IMPLEMENTED
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,7 +48,7 @@ namespace BucHunt.Controllers
                 if (hashes[x + 20] != hash[x])
                     return false;
             }
-            return true;
+                return true;
 
         }
     }
