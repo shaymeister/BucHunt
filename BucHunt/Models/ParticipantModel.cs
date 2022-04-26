@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------
+// File name: ParticipantModel.cs
+// Project name: BucHunt.Models
+// ---------------------------------------------------------------------------
+// Creators: Carlos Ortiz						
+// Course-Section: CSCI 4250-001
+// Creation Date:		
+// ---------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,7 +31,6 @@ namespace BucHunt.Models
         [Required(ErrorMessage = "Please Enter a Phone Number")]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "Enter a Phone Number that is Ten Digits Long")]
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "You must have a Password")]
         [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 10, ErrorMessage = "Enter a Password")]
         public string Password { get; set; }
@@ -38,7 +45,7 @@ namespace BucHunt.Models
     public enum Providers
     {
         TMobile,
-        Verison,
+        Verizon,
         ATnT,
         Metro,
         Cricket,

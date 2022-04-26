@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------
+// File name: EmailProcess.cs
+// Project name: BucHunt
+// ---------------------------------------------------------------------------
+// Creators: Carlos Ortiz						
+// Course-Section: CSCI 4250-001
+// Creation Date:		
+// ---------------------------------------------------------------------------
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -7,13 +15,22 @@ using System.Web;
 
 namespace BucHunt.Controllers
 {
+    /**
+    * Class Name: EmailProcess <br>
+    * Class Purpose: Sends Emails/Texts to the users.
+    * The messages contain information about the access code to get into the game
+    * 
+    * <hr>
+    * Date created:  <br>
+    * @author Carlos Ortiz
+    */
     public class EmailProcess
     {
+        bool messageSent;
         /// <summary>Sends the email from the buchunt email to the emial the participant entered</summary>
         /// <param name="email">The email.</param>
-        public void SendEmail(string email)
+        public bool SendEmail(string email, string AccessCode)
         {
-            string AccessCode = "068123";
             //Sets up the message we are going to send to the participant
             string subject = "Here's you're access code";
             string body = string.Format("Your access code to BucHunt is {0}", AccessCode);
@@ -36,12 +53,12 @@ namespace BucHunt.Controllers
             {
                 client.Send(message);
             }
-            catch (Exception)
+            catch (SmtpFailedRecipientsException ex)
             {
-
+                return false;
             }
 
-            Console.WriteLine("Ayooooooo");
+            return true;
         }
 
         /// <summary>
@@ -50,7 +67,7 @@ namespace BucHunt.Controllers
         /// </summary>
         /// <param name="phoneNumber">The phone number.</param>
         /// <param name="p">The service provider</param>
-        public void SendTexts(string phoneNumber, Models.Providers p)
+        public bool SendTexts(string phoneNumber, Models.Providers p, string AccessCode)
         {
             string EmailAddress = "";
             //Creates the email string from their phone number and service provider
@@ -61,7 +78,7 @@ namespace BucHunt.Controllers
                         EmailAddress = phoneNumber + "@vtext.com";
                         break;
                     }
-                case Models.Providers.Verison:
+                case Models.Providers.Verizon:
                     {
                         EmailAddress = phoneNumber + "@tmomail.net";
                         break;
@@ -98,7 +115,8 @@ namespace BucHunt.Controllers
                     }
 
             }
-            SendEmail(EmailAddress);
+            messageSent = SendEmail(EmailAddress, AccessCode);
+            return messageSent;
         }
     }
 }

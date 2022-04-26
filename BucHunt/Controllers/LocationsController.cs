@@ -39,7 +39,7 @@ namespace BucHunt.Controllers
 
             return View(locations);
         }
-
+        
         // GET: LocationModels/Details/5        
         /// <summary>
         /// displays details for a location.
@@ -62,10 +62,14 @@ namespace BucHunt.Controllers
                     UserEntry = row.UserEntry
                 });
             }
+            
+            // explain why we are using 0 here for index
+            // explain the error that returns when not returning a list
             var locationModel = locations[0];
 
             return View(locationModel);
         }
+
 
 
 
