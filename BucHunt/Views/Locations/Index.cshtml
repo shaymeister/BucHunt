@@ -6,6 +6,10 @@
 
 <h2>Locations</h2>
 
+<div id="Map" style="width: 600px; height: 500px"></div>
+
+<br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -26,27 +30,72 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Completion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DecodedQR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserEntry)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-            @Html.ActionLink("Enter QR Code", "QRCodeEntry", new { id = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecodedQR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEntry)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("Enter QR Code", "QRCodeEntry", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<script>
+    function CreateMap()
+    {
+        const ETSU = { lat: 36.303315, lng: -82.368879 };
+
+        const Map = new google.maps.Map(document.getElementById("Map"),
+        {
+            zoom: 15,
+            center: ETSU,
+            fullscreenControl: false,
+        });
+
+        new google.maps.Marker
+        ({
+            position: { lat: 36.302578075958586, lng: -82.36791822907561 },
+            Map,
+            title: "Roy S. Nicks Hall",
+        });
+
+        new google.maps.Marker
+        ({
+            position: { lat: 36.30582028497716, lng: -82.37124134811917 },
+            Map,
+            title: "Millenium Center",
+        });
+
+        new google.maps.Marker
+        ({
+            position: { lat: 36.30160358923479, lng: -82.36683720209022 },
+            Map,
+            title: "D. P. Culp Center",
+        });
+
+        new google.maps.Marker
+        ({
+            position: { lat: 36.30264116167029, lng: -82.36579650502173 },
+            Map,
+            title: "Charles C. Library",
+        });
+    }
+</script>
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN6VuSDQuIR1aatxtkTPl3SJ7QY_hunXY&callback=CreateMap"></script>
