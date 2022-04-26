@@ -1,4 +1,5 @@
-﻿using System;
+﻿//NOT IMPLEMENTED
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,7 +25,7 @@ namespace BucHunt.Controllers
 
             byte[] hashedPW = new byte[40];
             Array.Copy(salt, 0, hashedPW, 0, 20);
-            Array.Copy(hash, 0, hashedPW, 20, 40);
+            Array.Copy(hash, 0, hashedPW, 20, 20);
 
             return Convert.ToBase64String(hashedPW);
         }
@@ -47,7 +48,7 @@ namespace BucHunt.Controllers
                 if (hashes[x + 20] != hash[x])
                     return false;
             }
-            return true;
+                return true;
 
         }
     }
