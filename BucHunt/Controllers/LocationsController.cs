@@ -62,9 +62,9 @@ namespace BucHunt.Controllers
                     UserEntry = row.UserEntry
                 });
             }
-            
-            // explain why we are using 0 here for index
-            // explain the error that returns when not returning a list
+            // A zero has to be used as the index here because I could not 
+            // get the database to return a single object only a list 
+            // with one item
             var locationModel = locations[0];
 
             return View(locationModel);
@@ -187,6 +187,9 @@ namespace BucHunt.Controllers
                     UserEntry = row.UserEntry
                 });
             }
+            // A zero has to be used as the index here because I could not 
+            // get the database to return a single object only a list 
+            // with one item
             var locationModel = locations[0];
 
             if (locationModel == null)
@@ -245,6 +248,9 @@ namespace BucHunt.Controllers
                     UserEntry = row.UserEntry
                 });
             }
+            // A zero has to be used as the index here because I could not 
+            // get the database to return a single object only a list 
+            // with one item
             var locationModel = locations[0];
 
             if (locationModel == null)
